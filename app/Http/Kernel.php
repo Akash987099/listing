@@ -43,6 +43,15 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
+
+        'admin' => [
+            \App\Http\Middleware\Adminmiddleware::class
+        ],
+
+        'member' => [
+            \App\Http\Middleware\Membermiddleware::class
+        ]
     ];
 
     /**
@@ -62,7 +71,13 @@ class Kernel extends HttpKernel
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'precognitive' => \Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests::class,
         'signed' => \App\Http\Middleware\ValidateSignature::class,
+        'admins' => \App\Http\Middleware\Adminmiddleware::class,
+        'members' => \App\Http\Middleware\Membermiddleware::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
+
+  
+
+
 }
